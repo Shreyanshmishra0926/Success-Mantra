@@ -1632,3 +1632,13 @@ color: var(--secondary); /* Change text color on hover */
     font-size: 16px;
   }
 }
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background: #fff;
+  padding: 1rem;
+}
+
+.mobile-menu.show {
+  display: flex;
+}
