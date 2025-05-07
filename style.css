@@ -1583,39 +1583,57 @@ transition: color 0.3s; /* Smooth transition for text color */
 .mission-vision .mv-card:hover p {
 color: var(--secondary); /* Change text color on hover */
 }
-/* ======= Mobile Menu Styles ======= */
-.mobile-menu-toggle,
+/* Desktop Menu (Button Style) */
+.desktop-menu {
+  display: flex;
+  gap: 15px;
+  padding: 10px;
+}
+
+.nav-btn {
+  padding: 8px 16px;
+  background: #4CAF50;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.nav-btn:hover {
+  background: #45a049;
+}
+
+/* Mobile Toggle (Hidden on Desktop) */
+.mobile-toggle,
 .mobile-menu {
   display: none;
 }
 
+/* Mobile Styles */
 @media (max-width: 768px) {
   .desktop-menu {
-    display: none;
+    display: none; /* Hide desktop menu */
   }
   
-  .mobile-menu-toggle {
-    display: block;
+  .mobile-toggle {
+    display: block; /* Show toggle button */
     background: none;
     border: none;
     font-size: 24px;
-    cursor: pointer;
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 1000;
+    cursor: pointer;
   }
   
   .mobile-menu {
-    display: none;
     position: fixed;
     top: 70px;
     right: 20px;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    padding: 20px;
-    z-index: 999;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 15px;
     flex-direction: column;
     gap: 10px;
   }
