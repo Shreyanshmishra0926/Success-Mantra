@@ -8,3 +8,7 @@ toggleButton.addEventListener('click', function() {
   mobileMenu.setAttribute('aria-hidden', isExpanded);
   mobileMenu.classList.toggle('active');
 });
+// Toggle mobile menu
+document.querySelector('.mobile-toggle').addEventListener('click', function() {
+  document.querySelector('.mobile-menu').classList.toggle('active');
+});
