@@ -58,3 +58,11 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     });
   });
+const toggleButton = document.querySelector('.mobile-menu-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+toggleButton.addEventListener('click', () => {
+  const isVisible = mobileMenu.getAttribute('aria-hidden') === 'false';
+  mobileMenu.setAttribute('aria-hidden', isVisible ? 'true' : 'false');
+  mobileMenu.classList.toggle('show');
+});
