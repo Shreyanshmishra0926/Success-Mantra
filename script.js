@@ -1,6 +1,6 @@
-// Toggle mobile menu
-const toggleButton = document.querySelector('.mobile-menu-toggle');
-const mobileMenu = document.querySelector('.mobile-menu');
+document.getElementById("mobile-menu").addEventListener("click", function() {
+  document.querySelector(".nav-menu").classList.toggle("active");
+});
 
 toggleButton.addEventListener('click', function() {
   const isExpanded = this.getAttribute('aria-expanded') === 'true';
