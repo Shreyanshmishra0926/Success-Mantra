@@ -1583,3 +1583,198 @@ transition: color 0.3s; /* Smooth transition for text color */
 .mission-vision .mv-card:hover p {
 color: var(--secondary); /* Change text color on hover */
 }
+/* Base Navbar Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 15px 0;
+}
+
+/* Navbar Toggle Button */
+.navbar-toggler {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  z-index: 1001;
+}
+
+.navbar-toggler-icon {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background: var(--black);
+  position: relative;
+  transition: var(--transition);
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background: var(--black);
+  transition: var(--transition);
+}
+
+.navbar-toggler-icon::before {
+  top: -8px;
+}
+
+.navbar-toggler-icon::after {
+  bottom: -8px;
+}
+
+/* Mobile Menu (Slides in from left) */
+.navbar-collapse {
+  position: fixed;
+  top: 70px;
+  left: -100%;
+  width: 100%;
+  background: var(--white);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: var(--transition);
+  z-index: 999;
+}
+
+.navbar-collapse.show {
+  left: 0;
+}
+
+/* Navigation Links - Same style for both mobile and desktop */
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link {
+  position: relative;
+  color: var(--black);
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 8px 0;
+  display: inline-block;
+  transition: var(--transition);
+}
+
+/* Animated Underline Effect */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary);
+  transition: var(--transition);
+}
+
+.nav-link:hover::after,
+.nav-link:focus::after {
+  width: 100%;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Active State Transformations */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background: transparent;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+/* Desktop Layout - Horizontal menu */
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none !important;
+  }
+  
+  .navbar-collapse {
+    position: static;
+    width: auto;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+  }
+  
+  .navbar-nav {
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+  }
+  
+  .nav-link {
+    font-size: 1rem;
+    padding: 5px 0;
+  }
+  
+  /* Center-aligned underline animation */
+  .nav-link::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .nav-link:hover::after,
+  .nav-link:focus::after,
+  .nav-link.active::after {
+    width: 80%;
+    left: 50%;
+  }
+}
+
+/* Mobile Layout - Vertical text menu */
+@media (max-width: 991.98px) {
+  .navbar-toggler {
+    display: block;
+  }
+  
+  /* Keep text links same as desktop but stacked vertically */
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .nav-link {
+    font-size: 1.1rem;
+    padding: 8px 0;
+    display: inline-block; /* Maintains text link appearance */
+  }
+  
+  /* Full width underline on mobile */
+  .nav-link::after {
+    left: 0;
+    transform: none;
+  }
+  
+  .nav-link:hover::after,
+  .nav-link:focus::after,
+  .nav-link.active::after {
+    width: 100%;
+    left: 0;
+  }
+}
